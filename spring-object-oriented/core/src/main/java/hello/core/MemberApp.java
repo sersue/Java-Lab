@@ -17,6 +17,7 @@ public class MemberApp {
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
+        //ApplicationContext는 스프링 컨테이너를 생성하는 인터페이스
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 
         Member member = new Member(1L, "memberA", Grade.VIP);
