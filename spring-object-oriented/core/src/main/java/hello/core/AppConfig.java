@@ -12,11 +12,20 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// new 연산자로 두번이상 불려도 spring singleton에 의해 한번씩만 호출됨.
+//AppConfig.memberService
+//AppConfig.memberRepository
+//AppConfig.orderService
+
+//@Configuration에 의해 AppConfig를 상속하는 AppConfig@CGLIB가 생성되고 그게 스프링 컨테이너에 들어감
+//객체가 있으면 생성하지 않고, 없으면 AppConfig로직 실행
+//Configuration 떼면 싱글톤 깨짐
 @Configuration
 public class AppConfig {
 
     @Bean
     public MemberService memberService(){
+        System.out.println("AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
         /*
         1. MemoryMemberRepository 객체 생성
@@ -27,10 +36,12 @@ public class AppConfig {
     }
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
     @Bean
