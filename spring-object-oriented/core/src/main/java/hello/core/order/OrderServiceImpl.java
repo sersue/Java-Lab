@@ -18,6 +18,7 @@ public class OrderServiceImpl implements OrderService{
     // DIP위반 : OrderServiceImpl이라는 객체가 DiscountPolicy는 RateDiscountPolicy를 써야한다고 지정
     // 레오나르도 디카프리오가 여주인공을 고르는 셈
 
+    //생성자 주입만이 final키워드 사용
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
