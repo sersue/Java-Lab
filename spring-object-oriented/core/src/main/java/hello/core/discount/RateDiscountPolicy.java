@@ -5,8 +5,6 @@ import hello.core.Member.Member;
 import hello.core.annotation.MainDiscountPolicy;
 import org.springframework.stereotype.Component;
 
-
-
 @Component
 @MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
