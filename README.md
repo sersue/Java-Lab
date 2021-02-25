@@ -1,4 +1,4 @@
-## Java-Lap
+## Java-Lab
 💻Springboot 및 Java 실험소💻
 
 - This-is-java
